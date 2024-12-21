@@ -1,0 +1,12 @@
+.idea/misc.xml
+.idea/modules.xml
+.idea/SQLite.iml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
+__pycache__/app.cpython-39.pyc
+save/backup.sqbpro
+save/sqldiff.exe
+save/sqlite3_analyzer.exe
+save/sqlite3_rsync.exe
+save/sqlite3.exe
+.idea/.gitignore
