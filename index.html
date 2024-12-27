@@ -10,20 +10,35 @@
 
 
   <body>
-    <h1>Complexity Class Relationship Finder</h1>
-    
-    <form id="relationship-form">
 
-        <label for="classA"> First Complexity Class:</label>
-        <input type="text" id="classA" name="classA" placeholder="Enter first class" required>
+    <div class="center">
+      
+      <h1>Complexity Class Relationship Finder</h1>
+      <form id="relationship-form" autocomplete="off">
+
         
-        <label for="classB"> Second Complexity Class:</label>
+        <label for="classA" class="labelText"> First Complexity Class:</label>
+        <div class="autocomplete">
+        <input type="text" id="classA" name="classA" placeholder="Enter first class" required>
+        </div>
+        
+
+        
+        <label for="classB" class="labelText"> Second Complexity Class:</label>
+        <div class="autocomplete">
         <input type="text" id="classB" name="classB" placeholder="Enter second class" required>
+        </div>
+        
 
+        <div>
         <button type="submit" id="submitButton">Find Relationship</button>
-    </form>
+        </div>
 
-    <div id="result" class="result"></div>
+      </form>
+
+      <div id="result" class="result"></div>
+
+    </div>
 
     <script src="script.js"></script>
 

@@ -1,12 +1,13 @@
 body{
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #f8f9fa;
+    background-color: #030314;
     color: #333;
 }
 
 h1{
     color: #007bff;
+    font-size: 76px;
 }
 
 form {
@@ -40,6 +41,49 @@ button:hover {
 .result {
     margin-top: 20px;
     padding: 15px;
-    background-color: #e9ecef;
-    border: 1px solid #dee2e6;
+    color: antiquewhite;
+}
+
+.center{
+    margin: auto;
+    text-align: center;
+}
+
+.labelText{
+    color: antiquewhite;
+}
+
+.autocomplete{
+    position: relative;
+    display: inline-block;
+}
+
+.autocomplete-items{
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+/* when hovering over an item*/
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+/* when navigating with arrow keys*/
+.autocomplete-active {
+    background-color: dodgerblue !important;
+    color: #ffffff;
 }

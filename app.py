@@ -8,6 +8,29 @@ app = Flask(__name__)
 DB_PATH = 'complexity_classes.db'
 
 
+def get_classes():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    query = """
+    SELECT class_a FROM relationships
+    UNION
+    SELECT class_b FROM relationships; 
+    """
+
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    conn.close()
+
+    parsed_rows = []
+
+    for row in rows:
+        parsed_rows.append(row[0])
+
+    return parsed_rows
+
+
+
 def query_relationship(class_a, class_b):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -40,17 +63,24 @@ def get_relationship():
     if class_a is None or class_b is None:
         return jsonify({"relationship":"unknown"}), 400
 
+    if (class_a == class_b):
+        return jsonify({"relationship":"equal"}), 200
+
     if query_relationship(class_a, class_b):
         return jsonify({"relationship":"a subset"}), 200
     else:
         return jsonify({"relationship":"unknown"}), 200
+    
+@app.route('/api/relationship/getAllClasses', methods = ['GET'])
+def get_all_classes():
+    return jsonify(get_classes()), 200
 
 @app.route('/')
 def serve_index():
     return send_from_directory(os.getcwd(), 'index.html')
 
 @app.route('/script.js')
-def serve_index2():
+def serve_script():
     return send_from_directory(os.getcwd(), 'script.js')
 
 @app.route('/style.css')
